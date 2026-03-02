@@ -11,13 +11,13 @@ const montserrat = Montserrat({
 export const metadata = generateMetadata({
   title: "Creative Concept - Master Class VIBE CODING",
   description:
-    "Formation intensive en développement web avec HTML, CSS, JavaScript et React. Apprenez à créer des applications modernes avec l'IA. Inscription 19$, Frais 50$. Début: 18 mars 2026.",
+    "Formation intensive en développement web avec HTML, CSS, JavaScript et React. Apprenez à créer des applications modernes avec l'IA. Inscription 10$, Formation 50$. Début: 18 mars 2026.",
   Keywords: [
     "Creative Concept",
     "formation développement web",
     "HTML CSS JavaScript",
     "React JS",
-    "Lubumbashi",
+    "Kinshasa",
     "RDC",
     "programmation",
     "coding",
