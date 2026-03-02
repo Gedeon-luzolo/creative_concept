@@ -72,16 +72,14 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
           }}
           className="mb-8"
         >
-          <div className="bg-white rounded-3xl p-8 shadow-2xl border border-gray-100">
-            <Image
-              src="/images/logo/logo_noir.png"
-              alt="Creative Concept"
-              width={250}
-              height={100}
-              className="h-20 w-auto"
-              priority
-            />
-          </div>
+          <Image
+            src="/images/logo/logo_noir.png"
+            alt="Creative Concept"
+            width={250}
+            height={100}
+            className="h-20 w-auto"
+            priority
+          />
         </motion.div>
 
         {/* Tagline animation */}
@@ -106,7 +104,7 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
           transition={{ delay: 0.8, duration: 0.5 }}
           className="w-64 md:w-80"
         >
-          <div className="bg-white/20 backdrop-blur-sm rounded-full h-3 overflow-hidden mb-3 border border-gray-200">
+          <div className="bg-gray-200 rounded-full h-3 overflow-hidden mb-3">
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: `${progress}%` }}
@@ -117,30 +115,6 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
           <p className="text-center text-gray-600 text-sm font-semibold">
             Chargement... {progress}%
           </p>
-        </motion.div>
-
-        {/* Animated dots */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.5 }}
-          className="flex gap-2 mt-8"
-        >
-          {[0, 1, 2].map((i) => (
-            <motion.div
-              key={i}
-              animate={{
-                scale: [1, 1.5, 1],
-                opacity: [0.5, 1, 0.5],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                delay: i * 0.2,
-              }}
-              className="w-3 h-3 bg-[#0000ff] rounded-full"
-            />
-          ))}
         </motion.div>
       </div>
     </motion.div>

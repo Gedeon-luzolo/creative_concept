@@ -8,19 +8,6 @@ import { motion } from "framer-motion";
 export default function HeroSection() {
   return (
     <section className="pt-32 pb-20 px-4 relative overflow-hidden">
-      {/* Image de fond avec incrustation réduite */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/personnes/woman_debout.png"
-          alt="Formation VIBE CODING"
-          fill
-          className="object-cover object-center opacity-10"
-          priority
-        />
-        {/* Overlay blanc pour réduire l'incrustation */}
-        <div className="absolute inset-0 bg-white/80"></div>
-      </div>
-
       {/* Decorative background */}
       <div className="absolute inset-0 bg-linear-to-br from-blue-50/50 via-transparent to-yellow-50/50"></div>
       <div className="absolute top-20 right-0 w-125 h-125 bg-[#0000ff]/5 rounded-full blur-3xl"></div>
@@ -28,45 +15,8 @@ export default function HeroSection() {
 
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Image principale - À gauche sur desktop, en haut sur mobile */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative order-1"
-          >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              <Image
-                src="/images/personnes/woman_debout.png"
-                alt="Formation VIBE CODING - Creative Concept"
-                width={700}
-                height={900}
-                className="w-full h-auto"
-                priority
-              />
-            </div>
-
-            {/* Floating stats */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="absolute -bottom-8 -right-8 bg-white rounded-2xl shadow-2xl p-6 border border-gray-100"
-            >
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 bg-linear-to-br from-green-400 to-green-600 rounded-xl flex items-center justify-center">
-                  <span className="text-white text-2xl font-bold">130+</span>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-600">Étudiants</p>
-                  <p className="font-bold text-gray-900">Déjà formés</p>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Contenu texte - À droite sur desktop, en bas sur mobile */}
-          <div className="order-2">
+          {/* Contenu texte - En haut sur mobile (order-1), à gauche sur desktop */}
+          <div className="order-1 lg:order-1">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -97,7 +47,7 @@ export default function HeroSection() {
             >
               Transformez-vous en développeur web professionnel en seulement 2
               semaines. Apprenez HTML, CSS, JavaScript et React JS avec des
-              projets concrets.
+              projets concrets avec l'IA
             </motion.p>
 
             {/* Key points */}
@@ -195,6 +145,25 @@ export default function HeroSection() {
               </div>
             </motion.div>
           </div>
+
+          {/* Image principale - En bas sur mobile (order-2), à droite sur desktop */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative order-2 lg:order-2"
+          >
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/personnes/woman_debout.png"
+                alt="Formation VIBE CODING - Creative Concept"
+                width={700}
+                height={900}
+                className="w-full h-auto"
+                priority
+              />
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

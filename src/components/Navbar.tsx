@@ -41,14 +41,14 @@ export default function Navbar() {
             alt="Creative Concept"
             width={200}
             height={80}
-            className="h-14 w-auto"
+            className="h-10 md:h-14 w-auto"
             priority
           />
         </Link>
 
         <Link
           href="/inscription"
-          className="bg-[#0000ff] hover:bg-[#0000cc] text-white px-6 py-3 rounded-full font-bold transition-all duration-300 hover:scale-105 shadow-lg text-sm md:text-base"
+          className="bg-[#0000ff] hover:bg-[#0000cc] text-white px-4 py-2 md:px-6 md:py-3 rounded-full font-bold transition-all duration-300 hover:scale-105 shadow-lg text-xs md:text-base"
         >
           S'inscrire maintenant
         </Link>

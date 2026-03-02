@@ -67,7 +67,7 @@ export default function AboutSection() {
               MASTER CLASS VIBE CODING
             </div>
             <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-              HTML, CSS, JavaScript & React
+              HTML, CSS, JavaScript & React avec L'IA
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
@@ -79,7 +79,9 @@ export default function AboutSection() {
                   <p className="font-bold text-gray-900 text-base">
                     6 Séances - 2 Semaines
                   </p>
-                  <p className="text-gray-600 text-sm">Mer, Jeu et Ven</p>
+                  <p className="text-gray-600 text-sm">
+                    Mercredi, Jeudi et Vendredi
+                  </p>
                 </div>
               </div>
 
@@ -184,31 +186,39 @@ export default function AboutSection() {
         </div>
 
         {/* Bande défilante */}
-        <div className="bg-linear-to-r from-[#0000ff] via-[#0000cc] to-[#0000ff] py-8 rounded-3xl overflow-hidden shadow-2xl">
-          <div className="flex items-center gap-16 animate-scroll whitespace-nowrap">
-            <span className="text-white text-2xl font-bold flex items-center gap-3">
-              <FaCheckCircle className="text-[#ffa500]" /> HTML5 & CSS3
+        <div className="bg-linear-to-r from-[#0000ff] via-[#0000cc] to-[#0000ff] py-6 md:py-8 rounded-3xl overflow-hidden shadow-2xl">
+          <div className="flex items-center gap-8 md:gap-16 animate-scroll whitespace-nowrap">
+            <span className="text-white text-base md:text-2xl font-bold flex items-center gap-2 md:gap-3">
+              <FaCheckCircle className="text-[#ffa500] text-sm md:text-base" />{" "}
+              HTML5 & CSS3
             </span>
-            <span className="text-white text-2xl font-bold flex items-center gap-3">
-              <FaCheckCircle className="text-[#ffa500]" /> JAVASCRIPT ES6+
+            <span className="text-white text-base md:text-2xl font-bold flex items-center gap-2 md:gap-3">
+              <FaCheckCircle className="text-[#ffa500] text-sm md:text-base" />{" "}
+              JAVASCRIPT ES6+
             </span>
-            <span className="text-white text-2xl font-bold flex items-center gap-3">
-              <FaCheckCircle className="text-[#ffa500]" /> REACT JS
+            <span className="text-white text-base md:text-2xl font-bold flex items-center gap-2 md:gap-3">
+              <FaCheckCircle className="text-[#ffa500] text-sm md:text-base" />{" "}
+              REACT JS
             </span>
-            <span className="text-white text-2xl font-bold flex items-center gap-3">
-              <FaCheckCircle className="text-[#ffa500]" /> PROJETS RÉELS
+            <span className="text-white text-base md:text-2xl font-bold flex items-center gap-2 md:gap-3">
+              <FaCheckCircle className="text-[#ffa500] text-sm md:text-base" />{" "}
+              PROJETS RÉELS
             </span>
-            <span className="text-white text-2xl font-bold flex items-center gap-3">
-              <FaCheckCircle className="text-[#ffa500]" /> HTML5 & CSS3
+            <span className="text-white text-base md:text-2xl font-bold flex items-center gap-2 md:gap-3">
+              <FaCheckCircle className="text-[#ffa500] text-sm md:text-base" />{" "}
+              HTML5 & CSS3
             </span>
-            <span className="text-white text-2xl font-bold flex items-center gap-3">
-              <FaCheckCircle className="text-[#ffa500]" /> JAVASCRIPT ES6+
+            <span className="text-white text-base md:text-2xl font-bold flex items-center gap-2 md:gap-3">
+              <FaCheckCircle className="text-[#ffa500] text-sm md:text-base" />{" "}
+              JAVASCRIPT ES6+
             </span>
-            <span className="text-white text-2xl font-bold flex items-center gap-3">
-              <FaCheckCircle className="text-[#ffa500]" /> REACT JS
+            <span className="text-white text-base md:text-2xl font-bold flex items-center gap-2 md:gap-3">
+              <FaCheckCircle className="text-[#ffa500] text-sm md:text-base" />{" "}
+              REACT JS
             </span>
-            <span className="text-white text-2xl font-bold flex items-center gap-3">
-              <FaCheckCircle className="text-[#ffa500]" /> PROJETS RÉELS
+            <span className="text-white text-base md:text-2xl font-bold flex items-center gap-2 md:gap-3">
+              <FaCheckCircle className="text-[#ffa500] text-sm md:text-base" />{" "}
+              PROJETS RÉELS
             </span>
           </div>
         </div>

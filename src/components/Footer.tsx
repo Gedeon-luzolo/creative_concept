@@ -149,10 +149,7 @@ export default function Footer() {
               © {new Date().getFullYear()} Creative Concept. Tous droits
               réservés.
             </p>
-            <p className="text-xs text-gray-500">
-              Développé avec <span className="text-red-500">❤️</span> à
-              Kinshasa, RDC
-            </p>
+            <p className="text-xs text-gray-500">Développé à Kinshasa, RDC</p>
           </div>
         </div>
       </div>

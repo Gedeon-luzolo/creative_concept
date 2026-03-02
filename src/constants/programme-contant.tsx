@@ -11,51 +11,51 @@ import {
 
 export const programmeNotions = [
   {
-    icon: <FaCode className="text-white text-2xl" />,
-    title: "HTML5 & Sémantique",
+    icon: <FaRobot className="text-white text-2xl" />,
+    title: "IA & Productivité",
     details:
-      "Structure moderne des pages web, balises sémantiques, accessibilité et SEO.",
+      "Boostez votre développement avec l'intelligence artificielle pour coder plus vite et mieux.",
+  },
+  {
+    icon: <FaCode className="text-white text-2xl" />,
+    title: "HTML5 Moderne",
+    details:
+      "Structure des pages web, balises sémantiques et bonnes pratiques du web moderne.",
   },
   {
     icon: <FaPalette className="text-white text-2xl" />,
     title: "CSS3 & Design",
     details:
-      "Flexbox, Grid, animations, responsive design et frameworks CSS modernes.",
+      "Flexbox, Grid, animations et création d'interfaces visuelles attractives.",
   },
   {
     icon: <FaLaptopCode className="text-white text-2xl" />,
     title: "JavaScript ES6+",
     details:
-      "Syntaxe moderne, DOM manipulation, événements, async/await et APIs.",
+      "Programmation interactive, manipulation du DOM et logique applicative moderne.",
   },
   {
     icon: <FaReact className="text-white text-2xl" />,
     title: "React JS",
     details:
-      "Components, hooks, state management, routing et création d'applications.",
+      "Création d'applications web dynamiques avec la bibliothèque la plus populaire.",
   },
   {
     icon: <FaGitAlt className="text-white text-2xl" />,
     title: "Git & GitHub",
     details:
-      "Versioning, collaboration, branches, pull requests et workflow professionnel.",
+      "Gestion de versions, collaboration en équipe et workflow professionnel.",
   },
   {
     icon: <FaServer className="text-white text-2xl" />,
-    title: "Déploiement",
+    title: "Déploiement Web",
     details:
-      "Mise en ligne gratuite sur Vercel, Netlify et gestion de domaines.",
+      "Mise en ligne de vos projets et gestion de l'hébergement professionnel.",
   },
   {
     icon: <FaMobileAlt className="text-white text-2xl" />,
     title: "Responsive Design",
     details:
-      "Mobile-first, media queries, adaptation multi-écrans et performance.",
-  },
-  {
-    icon: <FaRobot className="text-white text-2xl" />,
-    title: "IA & Outils",
-    details:
-      "Utilisation de l'IA pour coder plus vite, debugging et bonnes pratiques.",
+      "Adaptation automatique sur mobile, tablette et desktop pour tous les écrans.",
   },
 ];
