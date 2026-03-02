@@ -27,7 +27,7 @@ export const seoConfig = {
     authors: [{ name: "Creative Concept" }],
     images: {
       og: {
-        url: "/images/opengraph/funda_opengraph.jpg",
+        url: "/images/opengraph/opengraph_hero.png",
         alt: "Creative Concept - Master Class VIBE CODING",
       },
     },
@@ -51,5 +51,9 @@ export const seoConfig = {
       "Creative Concept",
       "Kinshasa RDC",
     ],
+    image: {
+      url: "/images/opengraph/opengraph_form.png",
+      alt: "Inscription Master Class VIBE CODING - Creative Concept",
+    },
   },
 };

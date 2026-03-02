@@ -15,10 +15,9 @@ export const CONTACT_INFO = {
       "Bonjour Creative Concept ! Je suis intéressé par la Master Class VIBE CODING.",
   },
   social: {
-    facebook: "https://facebook.com/creativeconcept",
-    twitter: "https://twitter.com/creativeconcept",
-    youtube: "https://youtube.com/@creativeconcept",
-    instagram: "https://instagram.com/creativeconcept",
+    facebook: "https://www.facebook.com/Artconceptcreatif",
+    instagram: "https://www.instagram.com/creative_concept001",
+    youtube: "https://youtube.com/@creatifconcep480",
   },
 };
 

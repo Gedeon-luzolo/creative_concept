@@ -1,7 +1,6 @@
 import Image from "next/image";
 import {
   FaFacebook,
-  FaTwitter,
   FaYoutube,
   FaInstagram,
   FaWhatsapp,
@@ -9,6 +8,7 @@ import {
   FaMapMarkerAlt,
   FaPhone,
 } from "react-icons/fa";
+import { CONTACT_INFO } from "../constants/contact";
 
 export default function Footer() {
   return (
@@ -37,7 +37,7 @@ export default function Footer() {
             {/* Social Media */}
             <div className="flex gap-3">
               <a
-                href="https://facebook.com/creativeconcept"
+                href={CONTACT_INFO.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-11 h-11 rounded-full bg-gray-100 hover:bg-[#0000ff] hover:text-white text-gray-700 flex items-center justify-center transition-all duration-300 hover:scale-110"
@@ -46,31 +46,22 @@ export default function Footer() {
                 <FaFacebook className="text-xl" />
               </a>
               <a
-                href="https://twitter.com/creativeconcept"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-11 h-11 rounded-full bg-gray-100 hover:bg-[#0000ff] hover:text-white text-gray-700 flex items-center justify-center transition-all duration-300 hover:scale-110"
-                aria-label="Twitter"
-              >
-                <FaTwitter className="text-xl" />
-              </a>
-              <a
-                href="https://youtube.com/@creativeconcept"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-11 h-11 rounded-full bg-gray-100 hover:bg-[#ffa500] hover:text-white text-gray-700 flex items-center justify-center transition-all duration-300 hover:scale-110"
-                aria-label="YouTube"
-              >
-                <FaYoutube className="text-xl" />
-              </a>
-              <a
-                href="https://instagram.com/creativeconcept"
+                href={CONTACT_INFO.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-11 h-11 rounded-full bg-gray-100 hover:bg-[#ffa500] hover:text-white text-gray-700 flex items-center justify-center transition-all duration-300 hover:scale-110"
                 aria-label="Instagram"
               >
                 <FaInstagram className="text-xl" />
+              </a>
+              <a
+                href={CONTACT_INFO.social.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 rounded-full bg-gray-100 hover:bg-[#ffa500] hover:text-white text-gray-700 flex items-center justify-center transition-all duration-300 hover:scale-110"
+                aria-label="YouTube"
+              >
+                <FaYoutube className="text-xl" />
               </a>
             </div>
           </div>
