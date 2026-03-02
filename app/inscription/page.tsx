@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { FaArrowLeft, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import { FaArrowLeft, FaPhone } from "react-icons/fa";
 import InscriptionForm from "@/src/components/inscription/InscriptionForm";
 import SuccessDialog from "@/src/components/inscription/SuccessDialog";
 import type { InscriptionFormData } from "@/src/utils/validation";
@@ -128,29 +128,6 @@ export default function InscriptionPage() {
                         Après paiement, votre carte d'accès sera créée et
                         envoyée
                       </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Lieu de formation */}
-              <div className="bg-white rounded-3xl shadow-xl p-8">
-                <h3 className="font-bold text-gray-900 mb-4 text-xl">
-                  Lieu de formation
-                </h3>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center shrink-0">
-                      <FaMapMarkerAlt className="text-[#0000ff]" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">
-                        Immeuble Start Bar, Appt 03
-                      </p>
-                      <p className="text-gray-600 text-sm">
-                        Réf : Barumbu Kambare Itaga
-                      </p>
-                      <p className="text-gray-600 text-sm">Kinshasa, RDC</p>
                     </div>
                   </div>
                 </div>
