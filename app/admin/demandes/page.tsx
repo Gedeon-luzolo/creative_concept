@@ -7,20 +7,43 @@ import { FaArrowLeft, FaSearch } from "react-icons/fa";
 import { Inscription, PaymentStatus } from "@/src/types/incription";
 import Pagination from "@/src/components/pagination/Pagination";
 import InscriptionCard from "@/src/components/admin/InscriptionCard";
+import AccessCard from "@/src/components/admin/AccessCard";
 import { usePagination } from "@/src/hook/usePagination";
 import { inscriptionService } from "@/src/services/inscriptionService";
+import { downloadAccessCard } from "@/src/utils/downloadCard";
+import toast from "react-hot-toast";
 
 const ITEMS_PER_PAGE = 9;
 
+/**
+ * Page d'administration pour gérer les demandes d'inscription
+ *
+ * Fonctionnalités :
+ * - Visualiser toutes les inscriptions avec statistiques
+ * - Rechercher par nom, email ou téléphone
+ * - Marquer les paiements (inscription 10$ et participation 50$)
+ * - Génération automatique de carte d'accès lors du paiement d'inscription
+ * - Visualiser et envoyer les cartes via WhatsApp
+ * - Pagination (9 inscriptions par page)
+ */
 export default function DemandesPage() {
+  // États pour gérer les données et l'interface
   const [inscriptions, setInscriptions] = useState<Inscription[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedInscription, setSelectedInscription] =
+    useState<Inscription | null>(null);
+  const [showCardModal, setShowCardModal] = useState(false);
 
+  // Charger les inscriptions au montage du composant
   useEffect(() => {
     fetchInscriptions();
   }, []);
 
+  /**
+   * Récupère toutes les inscriptions depuis Supabase
+   * Triées par date de création (plus récentes en premier)
+   */
   const fetchInscriptions = async () => {
     try {
       const data = await inscriptionService.fetchAll();
@@ -32,20 +55,89 @@ export default function DemandesPage() {
     }
   };
 
+  /**
+   * Met à jour le statut de paiement d'une inscription
+   *
+   * Comportement spécial :
+   * - Si paiement d'inscription (10$) → génère automatiquement la carte d'accès
+   * - Si paiement de participation (50$) → met juste à jour le statut
+   *
+   * @param id - ID de l'inscription à mettre à jour
+   * @param field - Champ à modifier (inscription_status ou participation_status)
+   * @param status - Nouveau statut (paid ou unpaid)
+   */
   const updatePaymentStatus = async (
     id: string,
     field: "inscription_status" | "participation_status",
     status: PaymentStatus,
   ) => {
+    const loadingToast = toast.loading("Mise à jour en cours...");
+
     try {
+      // Mise à jour du statut de paiement dans la base de données
       await inscriptionService.updatePaymentStatus(id, field, status);
+
+      // Génération automatique de la carte si paiement d'inscription
+      if (field === "inscription_status" && status === "paid") {
+        toast.loading("Génération de la carte d'accès...", {
+          id: loadingToast,
+        });
+        try {
+          // Appel API pour générer le numéro de carte et le QR code
+          await inscriptionService.generateCard(id);
+          toast.success("Paiement confirmé et carte générée avec succès!", {
+            id: loadingToast,
+          });
+        } catch (error) {
+          console.error("Erreur génération carte:", error);
+          // On affiche quand même un succès car le paiement est enregistré
+          toast.success(
+            "Paiement confirmé (erreur lors de la génération de la carte)",
+            { id: loadingToast },
+          );
+        }
+      } else {
+        toast.success("Statut de paiement mis à jour avec succès!", {
+          id: loadingToast,
+        });
+      }
+
+      // Recharger les données pour afficher les changements
       fetchInscriptions();
     } catch (error) {
       console.error("Erreur:", error);
-      alert("Erreur lors de la mise à jour du statut");
+      toast.error("Erreur lors de la mise à jour du statut", {
+        id: loadingToast,
+      });
     }
   };
 
+  /**
+   * Ouvre le modal pour afficher la carte d'accès d'un participant
+   * @param inscription - Données de l'inscription dont on veut voir la carte
+   */
+  const handleViewCard = (inscription: Inscription) => {
+    setSelectedInscription(inscription);
+    setShowCardModal(true);
+  };
+
+  /**
+   * Télécharge la carte d'accès en format image PNG
+   */
+  const handleDownloadCard = async () => {
+    if (!selectedInscription) return;
+
+    const success = await downloadAccessCard(selectedInscription);
+
+    if (success) {
+      toast.success("Carte téléchargée avec succès!");
+    } else {
+      toast.error("Erreur lors du téléchargement de la carte");
+    }
+  };
+
+  // Filtrage des inscriptions selon le terme de recherche
+  // Recherche dans : nom, prénom, email, téléphone
   const filteredInscriptions = inscriptions.filter(
     (inscription) =>
       inscription.nom.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -54,7 +146,7 @@ export default function DemandesPage() {
       inscription.telephone.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
-  // Utiliser le hook de pagination
+  // Hook de pagination pour afficher 9 inscriptions par page
   const {
     currentItems: paginatedInscriptions,
     totalPages,
@@ -62,6 +154,7 @@ export default function DemandesPage() {
     setCurrentPage,
   } = usePagination(filteredInscriptions, ITEMS_PER_PAGE);
 
+  // Affichage du loader pendant le chargement initial
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -76,7 +169,7 @@ export default function DemandesPage() {
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
       <div className="container mx-auto max-w-7xl">
-        {/* Header */}
+        {/* Header avec logo, titre et statistiques */}
         <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-4">
@@ -103,7 +196,7 @@ export default function DemandesPage() {
             </Link>
           </div>
 
-          {/* Stats */}
+          {/* Statistiques : Total, Aujourd'hui, Cette semaine */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
             <div className="bg-blue-50 rounded-xl p-4">
               <p className="text-sm text-gray-600 mb-1">Total des demandes</p>
@@ -140,7 +233,7 @@ export default function DemandesPage() {
             </div>
           </div>
 
-          {/* Search */}
+          {/* Barre de recherche */}
           <div className="mt-6">
             <div className="relative">
               <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
@@ -166,7 +259,7 @@ export default function DemandesPage() {
           />
         )}
 
-        {/* Cards des inscriptions */}
+        {/* Grille des cards d'inscription */}
         {filteredInscriptions.length === 0 ? (
           <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
             <p className="text-gray-500 text-lg">
@@ -182,6 +275,7 @@ export default function DemandesPage() {
                 key={inscription.id}
                 inscription={inscription}
                 onUpdatePayment={updatePaymentStatus}
+                onViewCard={handleViewCard}
               />
             ))}
           </div>
@@ -200,6 +294,57 @@ export default function DemandesPage() {
           </div>
         )}
       </div>
+
+      {/* Modal pour afficher la carte d'accès */}
+      {showCardModal && selectedInscription && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+          onClick={() => setShowCardModal(false)}
+        >
+          <div
+            className="max-w-5xl w-full max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="bg-white rounded-2xl p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-gray-900">
+                  Carte d'Accès
+                </h2>
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={handleDownloadCard}
+                    className="px-4 py-2 bg-[#0000ff] hover:bg-[#0000cc] text-white rounded-lg font-semibold transition-colors flex items-center gap-2"
+                  >
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                      />
+                    </svg>
+                    Télécharger
+                  </button>
+                  <button
+                    onClick={() => setShowCardModal(false)}
+                    className="text-gray-500 hover:text-gray-700 text-2xl"
+                  >
+                    ×
+                  </button>
+                </div>
+              </div>
+              <div id="access-card">
+                <AccessCard inscription={selectedInscription} />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

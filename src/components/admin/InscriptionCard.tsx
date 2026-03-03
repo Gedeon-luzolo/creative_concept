@@ -19,15 +19,14 @@ interface InscriptionCardProps {
     field: "inscription_status" | "participation_status",
     status: PaymentStatus,
   ) => void;
+  onViewCard: (inscription: Inscription) => void;
 }
 
 export default function InscriptionCard({
   inscription,
   onUpdatePayment,
+  onViewCard,
 }: InscriptionCardProps) {
-  const isFullyPaid =
-    inscription.inscription_status === "paid" &&
-    inscription.participation_status === "paid";
   const hasCard = inscription.card_number !== null;
 
   return (
@@ -158,20 +157,17 @@ export default function InscriptionCard({
               Marquer participation payée
             </button>
           )}
-          {isFullyPaid && !hasCard && (
-            <button className="w-full py-2 px-4 bg-[#0000ff] hover:bg-[#0000cc] text-white rounded-lg text-sm font-semibold transition-colors flex items-center justify-center gap-2">
-              <FaIdCard />
-              Générer carte d'accès
-            </button>
-          )}
           {hasCard && (
             <div className="flex gap-2">
-              <button className="flex-1 py-2 px-4 bg-[#0000ff] hover:bg-[#0000cc] text-white rounded-lg text-sm font-semibold transition-colors flex items-center justify-center gap-2">
-                <FaDownload />
-                Télécharger
+              <button
+                onClick={() => onViewCard(inscription)}
+                className="flex-1 py-2 px-4 bg-[#0000ff] hover:bg-[#0000cc] text-white rounded-lg text-sm font-semibold transition-colors flex items-center justify-center gap-2"
+              >
+                <FaIdCard />
+                Voir carte
               </button>
               <a
-                href={`https://wa.me/${inscription.telephone.replace(/\s/g, "")}?text=${encodeURIComponent(`Bonjour ${inscription.prenom}, voici votre carte d'accès pour la Master Class VIBE CODING!`)}`}
+                href={`https://wa.me/${inscription.telephone.replace(/\s/g, "")}?text=${encodeURIComponent(`Bonjour ${inscription.prenom}, voici votre carte d'accès pour la Master Class VIBE CODING!\n\nVous pouvez la consulter ici: ${inscription.qr_code_data}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 py-2 px-4 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-lg text-sm font-semibold transition-colors flex items-center justify-center gap-2"

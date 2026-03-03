@@ -33,4 +33,23 @@ export const inscriptionService = {
 
     if (error) throw error;
   },
+
+  async generateCard(inscriptionId: string) {
+    const response = await fetch("/api/generate-card", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ inscriptionId }),
+    });
+
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(
+        error.error || "Erreur lors de la génération de la carte",
+      );
+    }
+
+    return response.json();
+  },
 };
