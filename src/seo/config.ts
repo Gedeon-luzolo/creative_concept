@@ -3,7 +3,7 @@ export const seoConfig = {
     title: "Creative Concept - Nous matérialisons vos idées",
     description:
       "Creative Concept - Agence de développement web et formation en programmation à Kinshasa. Master Class VIBE CODING: HTML, CSS, JavaScript, React JS avec l'IA.",
-    url: process.env.NEXT_PUBLIC_APP_URL || "https://creativeconcept-rdc.com",
+    url: process.env.NEXT_PUBLIC_BASE_URL || "https://creativeconcept-rdc.com",
     siteName: "Creative Concept",
     type: "website" as const,
     keywords: [

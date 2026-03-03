@@ -30,13 +30,11 @@ export function generateMetadata({
     openGraph: {
       type: "website",
       title: pagetitle,
-      images: [
-        {
-          url: pageImage.url,
-          alt: pageImage.alt,
-        },
-      ],
+      images: pageImage,
       description: pageDesciption,
+      url: defaultConfig.url,
+      siteName: defaultConfig.siteName,
+      locale: defaultConfig.locale,
     },
     twitter: {
       card: "summary_large_image",
