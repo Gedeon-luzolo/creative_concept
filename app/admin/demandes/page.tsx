@@ -1,23 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { supabase } from "@/src/lib/supabase";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  FaArrowLeft,
-  FaEnvelope,
-  FaPhone,
-  FaMapMarkerAlt,
-  FaCalendar,
-  FaSearch,
-} from "react-icons/fa";
-import { Inscription } from "@/src/types/incription";
+import { FaArrowLeft, FaSearch } from "react-icons/fa";
+import { Inscription, PaymentStatus } from "@/src/types/incription";
 import Pagination from "@/src/components/pagination/Pagination";
-import { formatShortDate, formatTime } from "@/src/utils/format";
+import InscriptionCard from "@/src/components/admin/InscriptionCard";
 import { usePagination } from "@/src/hook/usePagination";
+import { inscriptionService } from "@/src/services/inscriptionService";
 
-const ITEMS_PER_PAGE = 10;
+const ITEMS_PER_PAGE = 9;
 
 export default function DemandesPage() {
   const [inscriptions, setInscriptions] = useState<Inscription[]>([]);
@@ -30,14 +23,8 @@ export default function DemandesPage() {
 
   const fetchInscriptions = async () => {
     try {
-      const { data, error } = await supabase
-        .from("inscriptions")
-        .select("*")
-        .order("created_at", { ascending: false });
-
-      if (error) throw error;
-
-      setInscriptions(data || []);
+      const data = await inscriptionService.fetchAll();
+      setInscriptions(data);
     } catch (error) {
       console.error("Erreur:", error);
     } finally {
@@ -45,11 +32,26 @@ export default function DemandesPage() {
     }
   };
 
+  const updatePaymentStatus = async (
+    id: string,
+    field: "inscription_status" | "participation_status",
+    status: PaymentStatus,
+  ) => {
+    try {
+      await inscriptionService.updatePaymentStatus(id, field, status);
+      fetchInscriptions();
+    } catch (error) {
+      console.error("Erreur:", error);
+      alert("Erreur lors de la mise à jour du statut");
+    }
+  };
+
   const filteredInscriptions = inscriptions.filter(
     (inscription) =>
       inscription.nom.toLowerCase().includes(searchTerm.toLowerCase()) ||
       inscription.prenom.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      inscription.email.toLowerCase().includes(searchTerm.toLowerCase()),
+      inscription.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      inscription.telephone.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   // Utiliser le hook de pagination
@@ -57,7 +59,6 @@ export default function DemandesPage() {
     currentItems: paginatedInscriptions,
     totalPages,
     currentPage,
-    startIndex,
     setCurrentPage,
   } = usePagination(filteredInscriptions, ITEMS_PER_PAGE);
 
@@ -165,139 +166,26 @@ export default function DemandesPage() {
           />
         )}
 
-        {/* Tableau des inscriptions */}
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-          {filteredInscriptions.length === 0 ? (
-            <div className="p-12 text-center">
-              <p className="text-gray-500 text-lg">
-                {searchTerm
-                  ? "Aucune demande trouvée pour cette recherche"
-                  : "Aucune demande d'inscription pour le moment"}
-              </p>
-            </div>
-          ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-gray-50 border-b-2 border-gray-200">
-                  <tr>
-                    <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
-                      #
-                    </th>
-                    <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
-                      Nom Complet
-                    </th>
-                    <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
-                      Email
-                    </th>
-                    <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
-                      Téléphone
-                    </th>
-                    <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
-                      Adresse
-                    </th>
-                    <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
-                      Date
-                    </th>
-                    <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
-                      Actions
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {paginatedInscriptions.map((inscription, index) => (
-                    <tr
-                      key={inscription.id}
-                      className="hover:bg-gray-50 transition-colors"
-                    >
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-semibold">
-                        {startIndex + index + 1}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-linear-to-br from-[#0000ff] to-[#0000cc] rounded-full flex items-center justify-center text-white font-bold text-sm">
-                            {inscription.prenom.charAt(0)}
-                            {inscription.nom.charAt(0)}
-                          </div>
-                          <div>
-                            <p className="text-sm font-semibold text-gray-900">
-                              {inscription.prenom} {inscription.nom}
-                            </p>
-                            {inscription.motivation && (
-                              <p className="text-xs text-gray-500 max-w-xs truncate">
-                                {inscription.motivation}
-                              </p>
-                            )}
-                          </div>
-                        </div>
-                      </td>
-                      <td className="px-6 py-4">
-                        <a
-                          href={`mailto:${inscription.email}`}
-                          className="text-sm text-gray-900 hover:text-[#0000ff] transition-colors flex items-center gap-2"
-                        >
-                          <FaEnvelope className="text-[#0000ff]" />
-                          {inscription.email}
-                        </a>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <a
-                          href={`https://wa.me/${inscription.telephone.replace(/\s/g, "")}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm text-gray-900 hover:text-green-600 transition-colors flex items-center gap-2"
-                        >
-                          <FaPhone className="text-green-600" />
-                          {inscription.telephone}
-                        </a>
-                      </td>
-                      <td className="px-6 py-4">
-                        <div className="flex items-start gap-2 max-w-xs">
-                          <FaMapMarkerAlt className="text-red-500 mt-1 text-xs shrink-0" />
-                          <p className="text-sm text-gray-700 line-clamp-2">
-                            {inscription.adresse}
-                          </p>
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex items-center gap-2 text-sm text-gray-700">
-                          <FaCalendar className="text-gray-400 text-xs" />
-                          <div>
-                            <p className="font-semibold">
-                              {formatShortDate(inscription.created_at)}
-                            </p>
-                            <p className="text-xs text-gray-500">
-                              {formatTime(inscription.created_at)}
-                            </p>
-                          </div>
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex gap-2">
-                          <a
-                            href={`https://wa.me/${inscription.telephone.replace(/\s/g, "")}?text=${encodeURIComponent(`Bonjour ${inscription.prenom}, merci pour votre inscription à la Master Class VIBE CODING!`)}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-2 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-lg transition-colors"
-                            title="WhatsApp"
-                          >
-                            <FaPhone className="text-sm" />
-                          </a>
-                          <a
-                            href={`mailto:${inscription.email}`}
-                            className="p-2 bg-[#0000ff] hover:bg-[#0000cc] text-white rounded-lg transition-colors"
-                            title="Email"
-                          >
-                            <FaEnvelope className="text-sm" />
-                          </a>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
-        </div>
+        {/* Cards des inscriptions */}
+        {filteredInscriptions.length === 0 ? (
+          <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
+            <p className="text-gray-500 text-lg">
+              {searchTerm
+                ? "Aucune demande trouvée pour cette recherche"
+                : "Aucune demande d'inscription pour le moment"}
+            </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {paginatedInscriptions.map((inscription) => (
+              <InscriptionCard
+                key={inscription.id}
+                inscription={inscription}
+                onUpdatePayment={updatePaymentStatus}
+              />
+            ))}
+          </div>
+        )}
 
         {/* Pagination en bas */}
         {filteredInscriptions.length > 0 && (
