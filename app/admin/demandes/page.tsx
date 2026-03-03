@@ -13,8 +13,9 @@ import {
   FaSearch,
 } from "react-icons/fa";
 import { Inscription } from "@/src/types/incription";
-import Pagination from "@/src/components/admin/Pagination";
+import Pagination from "@/src/components/pagination/Pagination";
 import { formatShortDate, formatTime } from "@/src/utils/format";
+import { usePagination } from "@/src/hook/usePagination";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -22,7 +23,6 @@ export default function DemandesPage() {
   const [inscriptions, setInscriptions] = useState<Inscription[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     fetchInscriptions();
@@ -49,23 +49,17 @@ export default function DemandesPage() {
     (inscription) =>
       inscription.nom.toLowerCase().includes(searchTerm.toLowerCase()) ||
       inscription.prenom.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      inscription.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      inscription.telephone.includes(searchTerm),
+      inscription.email.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
-  // Pagination
-  const totalPages = Math.ceil(filteredInscriptions.length / ITEMS_PER_PAGE);
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const endIndex = startIndex + ITEMS_PER_PAGE;
-  const paginatedInscriptions = filteredInscriptions.slice(
+  // Utiliser le hook de pagination
+  const {
+    currentItems: paginatedInscriptions,
+    totalPages,
+    currentPage,
     startIndex,
-    endIndex,
-  );
-
-  // Reset à la page 1 quand on recherche
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [searchTerm]);
+    setCurrentPage,
+  } = usePagination(filteredInscriptions, ITEMS_PER_PAGE);
 
   if (loading) {
     return (
