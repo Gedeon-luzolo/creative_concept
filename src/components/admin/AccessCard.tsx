@@ -18,7 +18,7 @@ export default function AccessCard({ inscription }: AccessCardProps) {
         canvasRef.current,
         inscription.qr_code_data,
         {
-          width: 90,
+          width: 100,
           margin: 1,
           color: {
             dark: "#0000ff",
@@ -145,7 +145,7 @@ export default function AccessCard({ inscription }: AccessCardProps) {
                 {/* Footer */}
                 <div className="text-left">
                   <p className="text-sm text-[#0000ff] font-semibold">
-                    www.creativeconcept.cd
+                    https://creative-concept-coral.vercel.app
                   </p>
                 </div>
               </div>

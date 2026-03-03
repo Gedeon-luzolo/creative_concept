@@ -12,6 +12,7 @@ import { usePagination } from "@/src/hook/usePagination";
 import { inscriptionService } from "@/src/services/inscriptionService";
 import { downloadAccessCard } from "@/src/utils/downloadCard";
 import toast from "react-hot-toast";
+import Loading from "@/src/components/Loading";
 
 const ITEMS_PER_PAGE = 9;
 
@@ -156,14 +157,7 @@ export default function DemandesPage() {
 
   // Affichage du loader pendant le chargement initial
   if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-[#0000ff] mx-auto mb-4"></div>
-          <p className="text-gray-600">Chargement des demandes...</p>
-        </div>
-      </div>
-    );
+    return <Loading message="Chargement des demandes..." />;
   }
 
   return (
@@ -187,13 +181,21 @@ export default function DemandesPage() {
                 Demandes d'Inscription
               </h1>
             </div>
-            <Link
-              href="/"
-              className="flex items-center gap-2 text-[#0000ff] hover:text-[#0000cc] font-semibold transition-colors"
-            >
-              <FaArrowLeft />
-              Retour
-            </Link>
+            <div className="flex items-center gap-4">
+              <Link
+                href="/admin/paiements"
+                className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition-colors"
+              >
+                Paiements
+              </Link>
+              <Link
+                href="/"
+                className="flex items-center gap-2 text-[#0000ff] hover:text-[#0000cc] font-semibold transition-colors"
+              >
+                <FaArrowLeft />
+                Retour
+              </Link>
+            </div>
           </div>
 
           {/* Statistiques : Total, Aujourd'hui, Cette semaine */}
