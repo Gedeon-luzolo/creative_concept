@@ -245,7 +245,7 @@ export default function InscriptionForm({ onSuccess }: InscriptionFormProps) {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-[#0000ff] hover:bg-[#0000cc] text-white py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+          className="w-full bg-[#0000ff] hover:bg-[#0000cc] text-white py-4 md:py-5 rounded-xl font-bold text-base md:text-lg transition-all duration-300 hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
         >
           {isSubmitting ? (
             <span className="flex items-center justify-center gap-2">

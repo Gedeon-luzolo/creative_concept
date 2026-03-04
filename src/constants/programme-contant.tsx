@@ -14,48 +14,48 @@ export const programmeNotions = [
     icon: <FaRobot className="text-white text-2xl" />,
     title: "IA & Productivité",
     details:
-      "Boostez votre développement avec l'intelligence artificielle pour coder plus vite et mieux.",
+      "Apprends à coder avec l'IA comme copilote. Crée plus vite, mieux et sans bloquer.",
   },
   {
     icon: <FaCode className="text-white text-2xl" />,
     title: "HTML5 Moderne",
     details:
-      "Structure des pages web, balises sémantiques et bonnes pratiques du web moderne.",
+      "Construis la structure de tes pages web. Les fondations de tout ce que tu vas créer.",
   },
   {
     icon: <FaPalette className="text-white text-2xl" />,
     title: "CSS3 & Design",
     details:
-      "Flexbox, Grid, animations et création d'interfaces visuelles attractives.",
+      "Rends tes sites magnifiques. Couleurs, animations et layouts qui impressionnent.",
   },
   {
     icon: <FaLaptopCode className="text-white text-2xl" />,
-    title: "JavaScript ES6+",
+    title: "JavaScript",
     details:
-      "Programmation interactive, manipulation du DOM et logique applicative moderne.",
+      "Donne vie à tes applications. Interactions, logique et tout ce qui bouge sur ton site.",
   },
   {
     icon: <FaReact className="text-white text-2xl" />,
     title: "React JS",
     details:
-      "Création d'applications web dynamiques avec la bibliothèque la plus populaire.",
+      "Crée des applications modernes et rapides. L'outil préféré des développeurs pros.",
   },
   {
     icon: <FaGitAlt className="text-white text-2xl" />,
     title: "Git & GitHub",
     details:
-      "Gestion de versions, collaboration en équipe et workflow professionnel.",
+      "Sauvegarde ton code et collabore comme un pro. Indispensable pour tout développeur.",
   },
   {
     icon: <FaServer className="text-white text-2xl" />,
     title: "Déploiement Web",
     details:
-      "Mise en ligne de vos projets et gestion de l'hébergement professionnel.",
+      "Mets ton site en ligne et partage-le au monde. De ton ordi à internet en quelques clics.",
   },
   {
     icon: <FaMobileAlt className="text-white text-2xl" />,
     title: "Responsive Design",
     details:
-      "Adaptation automatique sur mobile, tablette et desktop pour tous les écrans.",
+      "Ton site parfait sur tous les écrans. Mobile, tablette, ordinateur - partout.",
   },
 ];

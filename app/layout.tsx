@@ -2,6 +2,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { generateMetadata } from "@/src/seo/generateMetadata";
 import ToastProvider from "@/src/components/ToastProvider";
+import { seoConfig } from "@/src/seo/config";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",

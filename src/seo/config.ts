@@ -18,6 +18,8 @@ export const seoConfig = {
       "agence web",
       "master class",
       "VIBE CODING",
+      "Vibe",
+      "Fomation",
       "intelligence artificielle",
     ],
     locale: "fr_FR",
@@ -26,10 +28,8 @@ export const seoConfig = {
     },
     authors: [{ name: "Creative Concept" }],
     images: {
-      og: {
-        url: "/images/opengraph/opengraph_hero.png",
-        alt: "Creative Concept - Master Class VIBE CODING",
-      },
+      url: "/images/opengraph/opengraph_hero.png",
+      alt: "Creative Concept - Master Class VIBE CODING",
     },
     twitter: {
       card: "summary_large_image",

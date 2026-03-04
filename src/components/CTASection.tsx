@@ -62,9 +62,9 @@ export default function CTASection() {
         >
           <Link
             href="/inscription"
-            className="inline-flex items-center gap-3 bg-[#0000ff] hover:bg-[#0000cc] text-white px-10 py-5 rounded-full text-xl font-semibold transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-3xl"
+            className="inline-flex items-center justify-center gap-3 bg-[#0000ff] hover:bg-[#0000cc] text-white px-6 md:px-10 py-4 md:py-5 rounded-full text-base md:text-xl font-semibold transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-3xl w-full sm:w-auto"
           >
-            <FaUserPlus className="text-3xl" />
+            <FaUserPlus className="text-2xl md:text-3xl" />
             S'inscrire maintenant
           </Link>
 
@@ -72,9 +72,9 @@ export default function CTASection() {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20BA5A] text-white px-10 py-5 rounded-full text-xl font-semibold transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-3xl"
+            className="inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20BA5A] text-white px-6 md:px-10 py-4 md:py-5 rounded-full text-base md:text-xl font-semibold transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-3xl w-full sm:w-auto"
           >
-            <FaWhatsapp className="text-3xl" />
+            <FaWhatsapp className="text-2xl md:text-3xl" />
             Nous contacter
           </a>
         </motion.div>

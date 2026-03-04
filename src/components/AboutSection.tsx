@@ -37,27 +37,16 @@ export default function AboutSection() {
 
         {/* Grid avec images et infos formation */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
-          {/* Images côté gauche - 2 images */}
+          {/* Image côté gauche */}
           <div className="relative">
-            <div className="grid grid-cols-2 gap-6">
-              <div className="relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-[400px]">
-                <Image
-                  src="/images/personnes/116566.jpg"
-                  alt="Formation pratique"
-                  width={400}
-                  height={400}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-[400px]">
-                <Image
-                  src="/images/personnes/120045.jpg"
-                  alt="Environnement professionnel"
-                  width={400}
-                  height={400}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            <div className="relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <Image
+                src="/images/personnes/75301.jpg"
+                alt="Formation pratique"
+                width={600}
+                height={700}
+                className="w-full h-auto object-cover"
+              />
             </div>
           </div>
 
@@ -143,7 +132,7 @@ export default function AboutSection() {
 
             <a
               href="/inscription"
-              className="inline-flex items-center gap-2 bg-[#0000ff] hover:bg-[#0000cc] text-white px-10 py-5 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 shadow-xl"
+              className="inline-flex items-center justify-center gap-2 bg-[#0000ff] hover:bg-[#0000cc] text-white px-6 md:px-10 py-4 md:py-5 rounded-full font-bold text-base md:text-lg transition-all duration-300 hover:scale-105 shadow-xl w-full sm:w-auto"
             >
               <FaCheckCircle />
               S'INSCRIRE MAINTENANT
@@ -182,44 +171,6 @@ export default function AboutSection() {
                 <p className="text-gray-600 leading-relaxed">{item.details}</p>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Bande défilante */}
-        <div className="bg-linear-to-r from-[#0000ff] via-[#0000cc] to-[#0000ff] py-6 md:py-8 rounded-3xl overflow-hidden shadow-2xl">
-          <div className="flex items-center gap-8 md:gap-16 animate-scroll whitespace-nowrap">
-            <span className="text-white text-base md:text-2xl font-bold flex items-center gap-2 md:gap-3">
-              <FaCheckCircle className="text-[#ffa500] text-sm md:text-base" />{" "}
-              HTML5 & CSS3
-            </span>
-            <span className="text-white text-base md:text-2xl font-bold flex items-center gap-2 md:gap-3">
-              <FaCheckCircle className="text-[#ffa500] text-sm md:text-base" />{" "}
-              JAVASCRIPT ES6+
-            </span>
-            <span className="text-white text-base md:text-2xl font-bold flex items-center gap-2 md:gap-3">
-              <FaCheckCircle className="text-[#ffa500] text-sm md:text-base" />{" "}
-              REACT JS
-            </span>
-            <span className="text-white text-base md:text-2xl font-bold flex items-center gap-2 md:gap-3">
-              <FaCheckCircle className="text-[#ffa500] text-sm md:text-base" />{" "}
-              PROJETS RÉELS
-            </span>
-            <span className="text-white text-base md:text-2xl font-bold flex items-center gap-2 md:gap-3">
-              <FaCheckCircle className="text-[#ffa500] text-sm md:text-base" />{" "}
-              HTML5 & CSS3
-            </span>
-            <span className="text-white text-base md:text-2xl font-bold flex items-center gap-2 md:gap-3">
-              <FaCheckCircle className="text-[#ffa500] text-sm md:text-base" />{" "}
-              JAVASCRIPT ES6+
-            </span>
-            <span className="text-white text-base md:text-2xl font-bold flex items-center gap-2 md:gap-3">
-              <FaCheckCircle className="text-[#ffa500] text-sm md:text-base" />{" "}
-              REACT JS
-            </span>
-            <span className="text-white text-base md:text-2xl font-bold flex items-center gap-2 md:gap-3">
-              <FaCheckCircle className="text-[#ffa500] text-sm md:text-base" />{" "}
-              PROJETS RÉELS
-            </span>
           </div>
         </div>
       </div>
