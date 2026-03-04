@@ -61,56 +61,17 @@ body {
   }
 }
 
+/* Scrollbar principal de l'application */
+::-webkit-scrollbar {
+  @apply w-3;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-r from-blue-500 to-indigo-800 rounded-md;
+}
+::-webkit-scrollbar-track {
+  @apply bg-blue-900;
+}
+
 .animate-scroll {
   animation: scroll 20s linear infinite;
-}
-
-/* Slider Styles */
-.slider-container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.slider-track {
-  display: flex;
-  animation: slide 12s infinite;
-}
-
-.slide {
-  min-width: 100%;
-  transition: 0.5s;
-}
-
-@keyframes slide {
-  0%,
-  30% {
-    transform: translateX(0);
-  }
-  33%,
-  63% {
-    transform: translateX(-100%);
-  }
-  66%,
-  96% {
-    transform: translateX(-200%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-.slider-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.slider-dot.active {
-  background-color: white;
-  width: 24px;
-  border-radius: 5px;
 }

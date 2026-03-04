@@ -82,21 +82,6 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
           />
         </motion.div>
 
-        {/* Tagline animation */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-          className="text-center mb-12"
-        >
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-            Creative Concept
-          </h1>
-          <p className="text-xl text-[#0000ff] font-semibold">
-            #Nous matérialisons vos idées !
-          </p>
-        </motion.div>
-
         {/* Progress bar */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}

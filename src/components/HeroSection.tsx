@@ -45,8 +45,8 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-xl text-gray-600 mb-8 leading-relaxed"
             >
-              Ne te limite pas à ChatGPT, viens créer tes propres applications.
-              14 jours pour maîtriser les téchnologies modernes du web avec l'IA
+              Viens créer tes propres applications sans être expert en 6
+              séances et maîtrise les téchnologies modernes du web avec l'IA
               pour construire ce que tu imagines.
             </motion.p>
 

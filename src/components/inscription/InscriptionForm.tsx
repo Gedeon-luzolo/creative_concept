@@ -179,9 +179,6 @@ export default function InscriptionForm({ onSuccess }: InscriptionFormProps) {
               {errors.telephone.message}
             </p>
           )}
-          <p className="text-sm text-gray-500 mt-1">
-            Nous vous contacterons sur ce numéro
-          </p>
         </div>
 
         <div className="relative">
@@ -210,9 +207,6 @@ export default function InscriptionForm({ onSuccess }: InscriptionFormProps) {
               {errors.adresse.message}
             </p>
           )}
-          <p className="text-sm text-gray-500 mt-1">
-            Formation à Kinshasa : Immeuble Start Bar, Appt 03
-          </p>
         </div>
 
         {/* Motivation */}
