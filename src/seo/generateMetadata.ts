@@ -20,7 +20,7 @@ export function generateMetadata({
   const { default: defaultConfig } = seoConfig;
   const pagetitle = title || defaultConfig.title;
   const pageDesciption = description || defaultConfig.description;
-  const pageImage = image || defaultConfig.images.og;
+  const pageImage = image || defaultConfig.images;
   const pageKeywords = Keywords || defaultConfig.keywords;
 
   return {
