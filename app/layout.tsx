@@ -27,6 +27,10 @@ export const metadata = generateMetadata({
     "VIBE CODING",
     "intelligence artificielle",
   ],
+  image: {
+    url: seoConfig.default.images.url,
+    alt: seoConfig.default.images.alt,
+  },
 });
 
 export default function RootLayout({
