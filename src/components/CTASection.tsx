@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaWhatsapp, FaUserPlus } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { CTA_STATS } from "@/src/constants/ui-data";
 
 export default function CTASection() {
   const whatsappNumber = "243815385446";
@@ -49,8 +50,8 @@ export default function CTASection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto"
         >
-          Rejoignez notre Master Class et devenez un développeur web
-          professionnel en seulement 1 semaine !
+          Rejoignez notre Master Class et saisissez l'opportunité de maîtriser
+          le développement web avec l'IA en 1 semaine !
         </motion.p>
 
         <motion.div
@@ -87,12 +88,7 @@ export default function CTASection() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 max-w-3xl mx-auto"
         >
-          {[
-            { value: "100+", label: "Étudiants" },
-            { value: "3", label: "Séances" },
-            { value: "1", label: "Semaine" },
-            { value: "100%", label: "Pratique" },
-          ].map((stat, index) => (
+          {CTA_STATS.map((stat, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.8 }}

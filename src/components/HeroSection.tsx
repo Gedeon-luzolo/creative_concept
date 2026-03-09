@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaPlay } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { HERO_KEY_POINTS } from "@/src/constants/ui-data";
 
 export default function HeroSection() {
   return (
@@ -24,7 +25,7 @@ export default function HeroSection() {
               className="inline-block mb-6"
             >
               <span className="bg-[#0000ff] text-white px-4 py-2 rounded-lg text-sm font-semibold">
-                MASTER CLASS
+                MASTERCLASS
               </span>
             </motion.div>
 
@@ -62,11 +63,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="space-y-4 mb-10"
             >
-              {[
-                "3 séances intensives sur 1 semaine",
-                "Projets réels et portfolio professionnel",
-                "Déploiement gratuit de votre application",
-              ].map((text, index) => (
+              {HERO_KEY_POINTS.map((text, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: -20 }}

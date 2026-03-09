@@ -53,7 +53,7 @@ export default function AboutSection() {
           {/* Infos formation côté droit */}
           <div>
             <div className="inline-block bg-linear-to-r from-[#ffa500] to-[#ff8c00] text-white px-5 py-2 rounded-full text-sm font-semibold mb-6">
-              MASTER CLASS CRÉATION D'APPLICATIONS WEB ROBUSTES
+              MASTERCLASS SUR LA CRÉATION D'APPLICATIONS WEB ROBUSTES
             </div>
             <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
               HTML, CSS, JavaScript & React avec L'IA
