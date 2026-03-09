@@ -52,7 +52,7 @@ ${new Date(data.created_at).toLocaleString("fr-FR", {
   timeStyle: "short",
 })}
 
-🔗 [Voir dans l'admin](${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/admin/demandes)
+🔗 [Voir dans l'admin](${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/admin/demandes)
     `.trim();
 
     try {
