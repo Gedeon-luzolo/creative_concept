@@ -12,11 +12,11 @@ export default function MasterClassSection() {
             PROGRAMME DE FORMATION
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-            Master Class VIBE CODING
+            Master Class Création d'Applications Web Robustes
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Un programme complet pour maîtriser le développement web moderne de
-            A à Z
+            Un programme complet pour maîtriser le développement web moderne
+            avec l'Intelligence Artificielle
           </p>
         </div>
 
@@ -25,7 +25,7 @@ export default function MasterClassSection() {
           <div className="relative rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
             <Image
               src="/images/formation/affiche_vibe_coding.webp"
-              alt="Master Class VIBE CODING - Creative Concept"
+              alt="Master Class Création d'Applications Web Robustes - Creative Concept"
               width={1080}
               height={1080}
               className="w-full h-auto"

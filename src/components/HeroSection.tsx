@@ -24,7 +24,7 @@ export default function HeroSection() {
               className="inline-block mb-6"
             >
               <span className="bg-[#0000ff] text-white px-4 py-2 rounded-lg text-sm font-semibold">
-                NOUVELLE SESSION
+                MASTER CLASS
               </span>
             </motion.div>
 
@@ -32,11 +32,17 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight text-gray-900"
+              className="font-extrabold mb-6 leading-tight"
             >
-              Master Class
-              <br />
-              <span className="text-[#0000ff]">VIBE CODING</span>
+              <span className="block text-3xl md:text-4xl lg:text-5xl text-gray-900">
+                Maîtrise la création
+              </span>
+              <span className="block text-4xl md:text-5xl lg:text-6xl text-[#0000ff] my-2">
+                des applications web robustes
+              </span>
+              <span className="block text-3xl md:text-4xl lg:text-5xl text-[#0000ff]">
+                avec l'IA
+              </span>
             </motion.h1>
 
             <motion.p
@@ -45,9 +51,8 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-xl text-gray-600 mb-8 leading-relaxed"
             >
-              Viens créer tes propres applications sans être expert en 6
-              séances et maîtrise les téchnologies modernes du web avec l'IA
-              pour construire ce que tu imagines.
+              Construis des applications web professionnelles dès le jour 1. 3
+              séances intensives avec l'IA pour créer ce que tu imagines.
             </motion.p>
 
             {/* Key points */}
@@ -58,7 +63,7 @@ export default function HeroSection() {
               className="space-y-4 mb-10"
             >
               {[
-                "6 séances intensives sur 2 semaines",
+                "3 séances intensives sur 1 semaine",
                 "Projets réels et portfolio professionnel",
                 "Déploiement gratuit de votre application",
               ].map((text, index) => (
@@ -133,15 +138,15 @@ export default function HeroSection() {
             >
               <div>
                 <p className="text-gray-500 mb-1">Début</p>
-                <p className="font-bold text-gray-900">18 mars 2026</p>
+                <p className="font-bold text-gray-900">26 mars 2026</p>
               </div>
               <div className="border-l border-gray-300 pl-6">
                 <p className="text-gray-500 mb-1">Durée</p>
-                <p className="font-bold text-gray-900">2 semaines</p>
+                <p className="font-bold text-gray-900">1 semaine</p>
               </div>
               <div className="border-l border-gray-300 pl-6">
                 <p className="text-gray-500 mb-1">Investissement</p>
-                <p className="font-bold text-gray-900">60$ total</p>
+                <p className="font-bold text-gray-900">35$ total</p>
               </div>
             </motion.div>
           </div>
@@ -156,7 +161,7 @@ export default function HeroSection() {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/personnes/woman_debout.png"
-                alt="Formation VIBE CODING - Creative Concept"
+                alt="Formation Création d'Applications Web Robustes - Creative Concept"
                 width={700}
                 height={900}
                 className="w-full h-auto"

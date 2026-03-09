@@ -53,7 +53,7 @@ export default function AboutSection() {
           {/* Infos formation côté droit */}
           <div>
             <div className="inline-block bg-linear-to-r from-[#ffa500] to-[#ff8c00] text-white px-5 py-2 rounded-full text-sm font-semibold mb-6">
-              MASTER CLASS VIBE CODING
+              MASTER CLASS CRÉATION D'APPLICATIONS WEB ROBUSTES
             </div>
             <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
               HTML, CSS, JavaScript & React avec L'IA
@@ -66,10 +66,10 @@ export default function AboutSection() {
                 </div>
                 <div>
                   <p className="font-bold text-gray-900 text-base">
-                    6 Séances - 2 Semaines
+                    3 Séances - 1 Semaine
                   </p>
                   <p className="text-gray-600 text-sm">
-                    Mercredi, Jeudi et Vendredi
+                    Jeudi, Samedi et Dimanche
                   </p>
                 </div>
               </div>
@@ -80,9 +80,9 @@ export default function AboutSection() {
                 </div>
                 <div>
                   <p className="font-bold text-gray-900 text-base">
-                    16h30 - 18h00
+                    16h30 - 19h00
                   </p>
-                  <p className="text-gray-600 text-sm">Sessions de 1h30</p>
+                  <p className="text-gray-600 text-sm">Sessions de 2h30</p>
                 </div>
               </div>
 
@@ -91,9 +91,9 @@ export default function AboutSection() {
                   <FaDollarSign className="text-[#ffa500] text-xl" />
                 </div>
                 <div>
-                  <p className="font-bold text-gray-900 text-base">10$ + 50$</p>
+                  <p className="font-bold text-gray-900 text-base">5$ + 30$</p>
                   <p className="text-gray-600 text-sm">
-                    Total: 60$ - Paiement flexible
+                    Total: 35$ - Paiement flexible
                   </p>
                 </div>
               </div>
@@ -122,7 +122,7 @@ export default function AboutSection() {
               </div>
               <div>
                 <p className="font-bold text-gray-900 text-lg">
-                  Début: 18 mars 2026
+                  Début: 26 mars 2026
                 </p>
                 <p className="text-orange-700 font-semibold">
                   ⚡ Places limitées - Inscrivez-vous vite !

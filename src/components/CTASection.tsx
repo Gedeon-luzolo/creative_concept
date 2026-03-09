@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 export default function CTASection() {
   const whatsappNumber = "243815385446";
   const whatsappMessage = encodeURIComponent(
-    "Bonjour Creative Concept ! Je suis intéressé par la Master Class VIBE CODING.",
+    "Bonjour Creative Concept ! Je suis intéressé par la Master Class Création des Applications Web Robustes.",
   );
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
@@ -49,8 +49,8 @@ export default function CTASection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto"
         >
-          Rejoignez notre Master Class VIBE CODING et devenez un développeur web
-          professionnel en seulement 2 semaines !
+          Rejoignez notre Master Class et devenez un développeur web
+          professionnel en seulement 1 semaine !
         </motion.p>
 
         <motion.div
@@ -88,9 +88,9 @@ export default function CTASection() {
           className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 max-w-3xl mx-auto"
         >
           {[
-            { value: "130+", label: "Étudiants" },
-            { value: "6", label: "Séances" },
-            { value: "2", label: "Semaines" },
+            { value: "100+", label: "Étudiants" },
+            { value: "3", label: "Séances" },
+            { value: "1", label: "Semaine" },
             { value: "100%", label: "Pratique" },
           ].map((stat, index) => (
             <motion.div

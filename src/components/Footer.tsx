@@ -125,8 +125,8 @@ export default function Footer() {
               <p className="text-sm font-semibold text-gray-900 mb-2">
                 Horaires de formation :
               </p>
-              <p className="text-sm text-gray-600">Mercredi, Jeudi, Vendredi</p>
-              <p className="text-sm text-gray-600">16h30 - 18h00</p>
+              <p className="text-sm text-gray-600">Jeudi, Samedi, Dimanche</p>
+              <p className="text-sm text-gray-600">16h30 - 19h00</p>
             </div>
           </div>
         </div>

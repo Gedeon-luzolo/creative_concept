@@ -53,9 +53,7 @@ export default function InscriptionPage() {
               Retour à l'accueil
             </Link>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Inscription Master Class
-              <br />
-              <span className="text-[#0000ff]">VIBE CODING</span>
+              Inscription à la Master Class
             </h1>
           </div>
 

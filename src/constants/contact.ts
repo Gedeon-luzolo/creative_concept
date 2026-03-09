@@ -12,7 +12,7 @@ export const CONTACT_INFO = {
   whatsapp: {
     number: "243815385446",
     defaultMessage:
-      "Bonjour Creative Concept ! Je suis intéressé par la Master Class VIBE CODING.",
+      "Bonjour Creative Concept ! Je suis intéressé par la Master Class Création d'Applications Web Robustes.",
   },
   social: {
     facebook: "https://www.facebook.com/Artconceptcreatif",
@@ -22,20 +22,20 @@ export const CONTACT_INFO = {
 };
 
 export const FORMATION_INFO = {
-  name: "Master Class VIBE CODING",
-  duration: "2 semaines",
-  sessions: 6,
+  name: "Master Class Création d'Applications Web Robustes",
+  duration: "1 semaine",
+  sessions: 3,
   schedule: {
-    days: ["Mercredi", "Jeudi", "Vendredi"],
-    time: "16h30 - 18h00",
+    days: ["Jeudi", "Samedi", "Dimanche"],
+    time: "16h30 - 19h00",
   },
   pricing: {
-    inscription: 10,
-    formation: 50,
-    total: 60,
+    inscription: 5,
+    formation: 30,
+    total: 35,
     currency: "$",
   },
-  startDate: "18 mars 2026",
+  startDate: "26 mars 2026",
   studentsCount: 130,
 };
 

@@ -2,7 +2,7 @@ export const seoConfig = {
   default: {
     title: "Creative Concept - Nous matérialisons vos idées",
     description:
-      "Creative Concept - Agence de développement web et formation en programmation à Kinshasa. Master Class VIBE CODING: HTML, CSS, JavaScript, React JS avec l'IA.",
+      "Creative Concept - Agence de développement web et formation en programmation à Kinshasa. Master Class Création d'Applications Web Robustes avec l'IA.",
     url: process.env.NEXT_PUBLIC_BASE_URL || "https://creativeconcept-rdc.com",
     siteName: "Creative Concept",
     type: "website" as const,
@@ -17,10 +17,9 @@ export const seoConfig = {
       "Congo",
       "agence web",
       "master class",
-      "VIBE CODING",
-      "Vibe",
-      "Fomation",
+      "applications web robustes",
       "intelligence artificielle",
+      "IA",
     ],
     locale: "fr_FR",
     icons: {
@@ -28,8 +27,8 @@ export const seoConfig = {
     },
     authors: [{ name: "Creative Concept" }],
     images: {
-      url: "/images/opengraph/opengraph_hero.png",
-      alt: "Creative Concept - Master Class VIBE CODING",
+      url: "/images/opengraph/opengraph_hero.webp",
+      alt: "Creative Concept - Master Class Création d'Applications Web Robustes",
     },
     twitter: {
       card: "summary_large_image",
@@ -38,22 +37,24 @@ export const seoConfig = {
     },
   },
   inscription: {
-    title: "Inscription Master Class VIBE CODING - Creative Concept",
+    title:
+      "Inscription Master Class Création d'Applications Web Robustes - Creative Concept",
     description:
-      "Inscrivez-vous à la Master Class VIBE CODING à Kinshasa. Formation intensive en développement web: HTML5, CSS3, JavaScript ES6+, React JS. 6 séances sur 2 semaines. Début: 18 mars 2026.",
+      "Inscrivez-vous à la Master Class à Kinshasa. Formation intensive en développement web avec l'IA. 3 séances sur 1 semaine. Début: 26 mars 2026. 35$ total.",
     keywords: [
       "inscription formation",
-      "master class vibe coding",
+      "master class développement web",
       "formation développement web Kinshasa",
       "apprendre programmation",
       "HTML CSS JavaScript React",
       "formation intensive",
       "Creative Concept",
       "Kinshasa RDC",
+      "intelligence artificielle",
     ],
     image: {
-      url: "/images/opengraph/opengraph_form.png",
-      alt: "Inscription Master Class VIBE CODING - Creative Concept",
+      url: "/images/opengraph/opengraph_form.webp",
+      alt: "Inscription Master Class Création d'Applications Web Robustes - Creative Concept",
     },
   },
 };

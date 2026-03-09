@@ -2,7 +2,6 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { generateMetadata } from "@/src/seo/generateMetadata";
 import ToastProvider from "@/src/components/ToastProvider";
-import { seoConfig } from "@/src/seo/config";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -11,9 +10,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata = generateMetadata({
-  title: "Creative Concept - Master Class VIBE CODING",
+  title: "Creative Concept - Master Class Création d'Applications Web Robustes",
   description:
-    "Formation intensive en développement web avec HTML, CSS, JavaScript et React. Apprenez à créer des applications modernes avec l'IA. Inscription 10$, Formation 50$. Début: 18 mars 2026.",
+    "Formation intensive en développement web avec l'IA. Apprenez à créer des applications modernes. 35$ pour 3 séances. Début: 26 mars 2026.",
   Keywords: [
     "Creative Concept",
     "formation développement web",
@@ -24,9 +23,13 @@ export const metadata = generateMetadata({
     "programmation",
     "coding",
     "master class",
-    "VIBE CODING",
+    "applications web robustes",
     "intelligence artificielle",
   ],
+  image: {
+    url: "/images/opengraph/opengraph_hero.webp",
+    alt: "Creative Concept - Master Class Création d'Applications Web Robustes",
+  },
 });
 
 export default function RootLayout({
