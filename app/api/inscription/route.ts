@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/src/lib/supabase";
 import { inscriptionSchema } from "@/src/utils/validation";
+import { telegramService } from "@/src/services/telegramService";
 
 export async function POST(request: NextRequest) {
   try {
@@ -66,6 +67,7 @@ export async function POST(request: NextRequest) {
           email: data.email,
           telephone: data.telephone,
           adresse: data.adresse,
+          source_decouverte: data.source_decouverte || null,
           motivation: data.motivation || null,
         },
       ])
@@ -78,6 +80,22 @@ export async function POST(request: NextRequest) {
         { error: "Erreur lors de l'inscription. Veuillez réessayer." },
         { status: 500 },
       );
+    }
+
+    // Envoyer une notification Telegram (ne bloque pas l'inscription si ça échoue)
+    try {
+      await telegramService.sendInscriptionNotification({
+        nom: insertedData.nom,
+        prenom: insertedData.prenom,
+        email: insertedData.email,
+        telephone: insertedData.telephone,
+        adresse: insertedData.adresse,
+        source_decouverte: insertedData.source_decouverte,
+        created_at: insertedData.created_at,
+      });
+    } catch (telegramError) {
+      // On log l'erreur mais on ne fait pas échouer l'inscription
+      console.error("Erreur notification Telegram:", telegramError);
     }
 
     // Succès

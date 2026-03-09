@@ -35,3 +35,12 @@ export const FORMATION_BENEFITS = [
     icon: "🎯",
   },
 ];
+
+export const SOURCE_DECOUVERTE_OPTIONS = [
+  { value: "Facebook", label: "Facebook" },
+  { value: "WhatsApp", label: "WhatsApp" },
+  { value: "Instagram", label: "Instagram" },
+  { value: "Par un proche", label: "Par un proche" },
+  { value: "Site web", label: "Site web" },
+  { value: "Autre", label: "Autre" },
+] as const;

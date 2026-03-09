@@ -29,6 +29,17 @@ export const inscriptionSchema = z.object({
     .min(5, "L'adresse doit contenir au moins 5 caractères")
     .max(200, "L'adresse ne peut pas dépasser 200 caractères"),
 
+  source_decouverte: z
+    .enum([
+      "Facebook",
+      "WhatsApp",
+      "Instagram",
+      "Par un proche",
+      "Site web",
+      "Autre",
+    ])
+    .optional(),
+
   motivation: z
     .string()
     .max(500, "La motivation ne peut pas dépasser 500 caractères")

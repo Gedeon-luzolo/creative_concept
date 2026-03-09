@@ -8,6 +8,7 @@ import {
   inscriptionSchema,
   type InscriptionFormData,
 } from "@/src/utils/validation";
+import { SOURCE_DECOUVERTE_OPTIONS } from "@/src/constants/ui-data";
 import ErrorDialog from "./ErrorDialog";
 
 interface InscriptionFormProps {
@@ -205,6 +206,37 @@ export default function InscriptionForm({ onSuccess }: InscriptionFormProps) {
           {errors.adresse && (
             <p className="text-red-500 text-sm mt-1">
               {errors.adresse.message}
+            </p>
+          )}
+        </div>
+
+        {/* Source de découverte */}
+        <div>
+          <label
+            htmlFor="source_decouverte"
+            className="block text-sm font-semibold text-gray-700 mb-2"
+          >
+            Comment avez-vous découvert cette formation ? (optionnel)
+          </label>
+          <select
+            id="source_decouverte"
+            {...register("source_decouverte")}
+            className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none transition-colors text-gray-900 ${
+              errors.source_decouverte
+                ? "border-red-500 focus:border-red-500"
+                : "border-gray-200 focus:border-[#0000ff]"
+            }`}
+          >
+            <option value="">Sélectionnez une option</option>
+            {SOURCE_DECOUVERTE_OPTIONS.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+          {errors.source_decouverte && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.source_decouverte.message}
             </p>
           )}
         </div>
