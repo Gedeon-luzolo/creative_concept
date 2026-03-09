@@ -6,7 +6,6 @@ import {
   FaCheckCircle,
   FaTimesCircle,
   FaIdCard,
-  FaDownload,
   FaWhatsapp,
 } from "react-icons/fa";
 import { Inscription, PaymentStatus } from "@/src/types/incription";

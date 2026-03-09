@@ -116,7 +116,7 @@ export default function PaiementsPage() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Montant unitaire:</span>
-                    <span className="font-semibold text-gray-900">$10</span>
+                    <span className="font-semibold text-gray-900">$5</span>
                   </div>
                 </div>
               </div>
@@ -147,7 +147,7 @@ export default function PaiementsPage() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Montant unitaire:</span>
-                    <span className="font-semibold text-gray-900">$50</span>
+                    <span className="font-semibold text-gray-900">$30</span>
                   </div>
                 </div>
               </div>
@@ -161,7 +161,7 @@ export default function PaiementsPage() {
               <div className="space-y-3">
                 <div className="flex justify-between items-center py-3 border-b border-gray-200">
                   <span className="text-gray-600">
-                    Inscriptions ({stats.paidInscriptions} × $10)
+                    Inscriptions ({stats.paidInscriptions} × $5)
                   </span>
                   <span className="text-lg font-bold text-[#0000ff]">
                     ${stats.inscriptionRevenue}
@@ -169,7 +169,7 @@ export default function PaiementsPage() {
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-200">
                   <span className="text-gray-600">
-                    Participations ({stats.paidParticipations} × $50)
+                    Participations ({stats.paidParticipations} × $30)
                   </span>
                   <span className="text-lg font-bold text-[#ffa500]">
                     ${stats.participationRevenue}
