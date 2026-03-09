@@ -156,19 +156,21 @@ export default function AboutSection() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
             {programmeNotions.map((item, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+                className="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100"
               >
-                <div className="w-14 h-14 bg-linear-to-br from-[#0000ff] to-[#0000cc] rounded-xl flex items-center justify-center mb-4">
-                  {item.icon}
+                <div className="w-10 h-10 md:w-14 md:h-14 bg-linear-to-br from-[#0000ff] to-[#0000cc] rounded-lg md:rounded-xl flex items-center justify-center mb-2 md:mb-4">
+                  <div className="text-lg md:text-2xl">{item.icon}</div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-sm md:text-xl font-bold text-gray-900 mb-1 md:mb-3 leading-tight">
                   {item.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">{item.details}</p>
+                <p className="text-xs md:text-base text-gray-600 leading-snug md:leading-relaxed">
+                  {item.details}
+                </p>
               </div>
             ))}
           </div>
