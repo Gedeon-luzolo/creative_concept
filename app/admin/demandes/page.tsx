@@ -22,7 +22,7 @@ const ITEMS_PER_PAGE = 9;
  * Fonctionnalités :
  * - Visualiser toutes les inscriptions avec statistiques
  * - Rechercher par nom, email ou téléphone
- * - Marquer les paiements (inscription 10$ et participation 50$)
+ * - Marquer les paiements (inscription 5$ et participation 30$)
  * - Génération automatique de carte d'accès lors du paiement d'inscription
  * - Visualiser et envoyer les cartes via WhatsApp
  * - Pagination (9 inscriptions par page)
@@ -60,8 +60,8 @@ export default function DemandesPage() {
    * Met à jour le statut de paiement d'une inscription
    *
    * Comportement spécial :
-   * - Si paiement d'inscription (10$) → génère automatiquement la carte d'accès
-   * - Si paiement de participation (50$) → met juste à jour le statut
+   * - Si paiement d'inscription (5$) → génère automatiquement la carte d'accès
+   * - Si paiement de participation (30$) → met juste à jour le statut
    *
    * @param id - ID de l'inscription à mettre à jour
    * @param field - Champ à modifier (inscription_status ou participation_status)

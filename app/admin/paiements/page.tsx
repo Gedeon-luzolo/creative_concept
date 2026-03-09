@@ -12,8 +12,8 @@ import Loading from "@/src/components/Loading";
  *
  * Affiche:
  * - Total en caisse
- * - Revenus des inscriptions (10$ chacune)
- * - Revenus des participations (50$ chacune)
+ * - Revenus des inscriptions (5$ chacune)
+ * - Revenus des participations (30$ chacune)
  */
 export default function PaiementsPage() {
   const [stats, setStats] = useState<PaymentStats | null>(null);

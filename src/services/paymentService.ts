@@ -4,11 +4,11 @@ import { supabase } from "@/src/lib/supabase";
  * Interface pour les statistiques de paiement
  */
 export interface PaymentStats {
-  // Inscriptions (10$ chacune)
+  // Inscriptions (5$ chacune)
   paidInscriptions: number;
   inscriptionRevenue: number;
 
-  // Participations (50$ chacune)
+  // Participations (30$ chacune)
   paidParticipations: number;
   participationRevenue: number;
 
@@ -42,8 +42,8 @@ export const paymentService = {
     ).length;
 
     // Calculer les revenus
-    const inscriptionRevenue = paidInscriptions * 10;
-    const participationRevenue = paidParticipations * 50;
+    const inscriptionRevenue = paidInscriptions * 5;
+    const participationRevenue = paidParticipations * 30;
     const totalRevenue = inscriptionRevenue + participationRevenue;
 
     return {

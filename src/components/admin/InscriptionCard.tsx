@@ -81,7 +81,7 @@ export default function InscriptionCard({
         <div className="space-y-3 pt-4 border-t border-gray-200">
           <div>
             <div className="flex items-center justify-between mb-1">
-              <span className="text-sm text-gray-600">Inscription (10$)</span>
+              <span className="text-sm text-gray-600">Inscription (05$)</span>
               {inscription.inscription_status === "paid" ? (
                 <span className="flex items-center gap-1 text-green-600 text-sm font-semibold">
                   <FaCheckCircle />
@@ -104,7 +104,7 @@ export default function InscriptionCard({
           </div>
           <div>
             <div className="flex items-center justify-between mb-1">
-              <span className="text-sm text-gray-600">Participation (50$)</span>
+              <span className="text-sm text-gray-600">Participation (30$)</span>
               {inscription.participation_status === "paid" ? (
                 <span className="flex items-center gap-1 text-green-600 text-sm font-semibold">
                   <FaCheckCircle />
